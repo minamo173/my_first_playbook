@@ -1,0 +1,5 @@
+- name: hogeグループが存在する
+  group: name=hoge state=present
+
+- name: hogeグループに所属するhogeユーザーが存在する
+  user: name=hoge state=present password=no groups=hoge

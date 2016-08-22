@@ -1,0 +1,3 @@
+- name: yumパッケージが最新状態になっている
+  yum: state=latest name=*
+  

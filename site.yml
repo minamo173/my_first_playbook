@@ -1,0 +1,8 @@
+- hosts: remote
+  become: yes
+  roles:
+    - timezone
+    - yum
+    - user_and_group
+    - apache2
+    - aws_codedeploy

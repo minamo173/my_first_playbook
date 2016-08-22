@@ -1,0 +1,16 @@
+- name: S3から最新版のCodeDeploy Agentを取得する
+  get_url:
+    url: "https://aws-codedeploy-ap-northeast-1.s3.amazonaws.com/latest/install"
+    dest: /tmp/codedeploy-install
+
+- name: Codedeploy Agentインストールのために、実行権限を付与する
+  file:
+    state: file
+    path: /tmp/codedeploy-install
+    group: ec2-user
+    owner: ec2-user
+    mode: 0777
+
+- name: Codedeploy Agentのインストール
+  become: true
+  command: /tmp/codedeploy-install auto

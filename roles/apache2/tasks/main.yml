@@ -1,0 +1,5 @@
+- name: Apacheがインストールされている
+  yum: name=httpd24 state=installed
+
+- name: Apacheが起動されている
+  service: name=httpd state=running enabled=yes
