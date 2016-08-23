@@ -1,0 +1,19 @@
+{
+  "provisioners" : [
+    {
+        "type" : "ansible",
+        "playbook_file" : "./site.yml"
+    }
+  ],
+  "builders" : [{
+    "type" : "amazon-ebs",
+    "region" : "ap-northeast-1",
+    "instance_type" : "t2.nano",
+    "source_ami" : "ami-374db956",
+    "ssh_username" : "ec2-user",
+    "ami_name" : "packer-ansible-remote-{{timestamp}}",
+    "security_group_id" : "sg-xxxxxxxxxx",
+    "subnet_id" : "subnet-xxxxxxxxx",
+    "vpc_id" : "xxxxxxxxxx"
+  }]
+}
